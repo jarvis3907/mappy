@@ -10,7 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Class to use spring application context while running cucumber
  */
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = FizzbuzzApplication.class, loader = SpringBootContextLoader.class)
 @Slf4j
 public class CucumberSpringContextConfiguration {

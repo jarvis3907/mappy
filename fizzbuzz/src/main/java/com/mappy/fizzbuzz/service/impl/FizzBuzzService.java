@@ -66,7 +66,7 @@ public class FizzBuzzService implements IFizzBuzzService {
                     .numberOfHits(((Number) stat[1]).intValue())
                     .build();
         }
-        throw new EntityNotFoundException("API hasn't received the call");
+        return HitResponse.builder().numberOfHits(0).request(null).build();
     }
 
     private Request getRequest(String payload) {

@@ -17,14 +17,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static com.mappy.fizzbuzz.utils.TestUtils.asJsonString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -62,7 +59,7 @@ public class FizzBuzzControllerIT {
         String resultantResponse = result.getResponse().getContentAsString();
         assertNotNull(resultantResponse);
         Result resultant = objectMapper.readValue(resultantResponse, Result.class);
-        assertEquals(Arrays.asList("1", "2", "fizz", "4", "buzz"), resultant.getResult());
+        assertEquals(Arrays.asList("1", "2", "fizz", "4", "buzz"), resultant.getResult(), "Asserting the result");
     }
 
 
@@ -140,11 +137,16 @@ public class FizzBuzzControllerIT {
 
     @Test
     public void testStatistics() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/compute/statistics")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/compute/statistics")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
+
+        String resultantResponse = result.getResponse().getContentAsString();
+        assertNotNull(resultantResponse);
+        HitResponse resultant = objectMapper.readValue(resultantResponse, HitResponse.class);
+        assertEquals(0, resultant.getNumberOfHits(), "Asserting the number of hits");
     }
 
 }
