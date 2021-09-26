@@ -78,12 +78,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9180/oauth/token",
-					"protocol": "http",
+					"raw": "{{tokenHostName}}/oauth/token",
 					"host": [
-						"localhost"
+						"{{tokenHostName}}"
 					],
-					"port": "9180",
 					"path": [
 						"oauth",
 						"token"
@@ -115,15 +113,13 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstWord\": \"fizz\",\n    \"secondWord\": \"buzz\",\n    \"firstNumber\": 3,\n    \"secondNumber\": 5,\n    \"limit\": 15\n}"
+					"raw": "{\n    \"firstWord\": \"fizz\",\n    \"secondWord\": \"buzz\",\n    \"firstNumber\": 3,\n    \"secondNumber\": 5,\n    \"limit\": 20\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9080/api/compute",
-					"protocol": "http",
+					"raw": "{{hostName}}/api/compute",
 					"host": [
-						"localhost"
+						"{{hostName}}"
 					],
-					"port": "9080",
 					"path": [
 						"api",
 						"compute"
@@ -154,15 +150,14 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:9080/api/compute",
-					"protocol": "http",
+					"raw": "{{hostName}}/api/compute/statistics",
 					"host": [
-						"localhost"
+						"{{hostName}}"
 					],
-					"port": "9080",
 					"path": [
 						"api",
-						"compute"
+						"compute",
+						"statistics"
 					]
 				}
 			},
