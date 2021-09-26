@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:9080}
+application:
+  name: gateway
+  description: Gateway
+  version: 1.0.0-SNAPSHOT
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://${DISCOVERY_HOST:localhost}:${DISCOVERY_PORT:8761}/eureka/}
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: fizzbuzz-service
+          uri: lb://fizzbuzz-service
+          predicates:
+            - Path=/api/compute**,/api/compute/statistics** ,
+          filters:
+            - RewritePath=/api/compute(?<path>.*),/api/compute$\{path},/api/compute/statistics(?<path>.*),/api/compute/statistics$\{path}
+ 
+      
