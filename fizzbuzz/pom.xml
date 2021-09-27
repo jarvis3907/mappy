@@ -8,7 +8,7 @@
         <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.mappy</groupId>
+    <groupId>com.mappy.homework</groupId>
     <artifactId>fizzbuzz</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>fizzbuzz</name>
