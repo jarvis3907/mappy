@@ -36,12 +36,12 @@ Please start the service in the below order
 
 #### Testing 
 
-- Unit testing 
-- Integration testing 
+- Unit test
+- Integration test
 - BDD
 
 
 #### API Testing
 
 - Import the `Mappy.postman_collection.json` and `Mappy.postman_environment.json` which is under postman folder of the project in postman
-- Obtain access token and proceed with creating customer and loan applications. Access token in valid for 60 minutes and generate a new one once it is expired.
+- Obtain access token and proceed with fizzbuzz service. Access token in valid for 60 minutes and generate a new one once it is expired.
