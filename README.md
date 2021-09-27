@@ -17,6 +17,9 @@ Please start the service in the below order
 └── gateway
     Default Port: 9080
     To start use: mvn spring-boot:run
+└── fizzbuzz Service
+    Default Port: 8080
+    To start use: mvn spring-boot:run
 
 
 ```
